@@ -1,0 +1,16 @@
+# User Interface settings
+[ui]
+username = George Balatsouras <gbalats@gmail.com>
+editor = emacs
+merge = emacs
+
+# Merge tool
+[merge-tools]
+emacs.args = -q --eval "(ediff-merge-with-ancestor \"$local\" \"$other\" \"$base\" nil \"$output\")"
+
+[extensions]
+hgext.extdiff =
+
+[extdiff]
+cmd.diffw = diff
+opts.diffw = -w -r -N -p -U 8
