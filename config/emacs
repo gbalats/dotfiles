@@ -6,6 +6,7 @@
  '(c-report-syntactic-errors t)
  '(c-backspace-function (quote delete-backward-char))
  '(inhibit-startup-screen t)
+ '(haskell-mode-hook (quote (turn-on-haskell-indent)))
  '(package-archives (quote (("gnu" . "http://elpa.gnu.org/packages/") 
                             ("melpa" . "http://melpa.milkbox.net/packages/") 
                             ("marmalade" . "http://marmalade-repo.org/packages/")))))
