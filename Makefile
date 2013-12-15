@@ -1,19 +1,32 @@
 INSTALL = install
 
 # Directories
-SRCDIR = ./config
-OUTDIR = $(HOME)
+SRCDIR   = ./config
+OUTDIR   = $(HOME)
+EMACSDIR = $(HOME)/.emacs.d
+ELISP_SRCDIR = ./elisp
+ELISP_OUTDIR = $(EMACSDIR)/include
 
 # Configuration files
-CONFIG = $(notdir $(wildcard $(SRCDIR)/*))
-HIDDEN = $(CONFIG:%=$(OUTDIR)/.%)
+CONFIG = $(wildcard $(SRCDIR)/*)
+HIDDEN = $(CONFIG:$(SRCDIR)/%=$(OUTDIR)/.%)
+
+# Elisp files
+ELISP_SRC = $(wildcard $(ELISP_SRCDIR)/*.el)
+ELISP_OUT = $(ELISP_SRC:$(ELISP_SRCDIR)/%=$(ELISP_OUTDIR)/%)
 
 all: install
 
-install: $(HIDDEN)
+install: $(HIDDEN) $(ELISP_OUT)
 
 $(HIDDEN): $(OUTDIR)/.%: $(SRCDIR)/%
-	@echo "Installing $(@F) ..."
+	@echo "... installing $(@F) ..."
 	$(INSTALL) -m 444 $< $@
 
-.PHONY: all install
+$(ELISP_OUT): $(ELISP_OUTDIR)/%.el: $(ELISP_SRCDIR)/%.el
+	@echo "... (elisp) installing $* ..."
+	$(INSTALL) -m 444 -D $< $@
+
+elisp: $(ELISP_OUT)
+
+.PHONY: all install elisp
