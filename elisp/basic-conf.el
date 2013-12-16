@@ -19,6 +19,9 @@
 ;; disable auto-save
 (setq auto-save-default nil)
 
+;; always end a file with a newline
+(setq require-final-newline 'query)
+
 ;; Centering code stolen from somewhere and restolen from 
 ;; http://www.chrislott.org/geek/emacs/dotemacs.html
 ;; centers the screen around a line...
