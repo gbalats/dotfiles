@@ -28,7 +28,9 @@
 (require 'tbemail)
 (require 'flymake)
 (require 'flymake-cursor)
-(require 'cedet)
+
+;; Uncomment this line to enable cedet
+;; (require 'cedet)
 
 ;; Uncomment this line to give emacs access to clipboard contents
 ;; (require 'xclip)
