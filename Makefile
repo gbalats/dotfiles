@@ -12,7 +12,7 @@ CONFIG = $(wildcard $(SRCDIR)/*)
 HIDDEN = $(CONFIG:$(SRCDIR)/%=$(OUTDIR)/.%)
 
 # Elisp files
-ELISP_SRC = $(wildcard $(ELISP_SRCDIR)/*.el)
+ELISP_SRC = $(filter-out %/emacs.el, $(wildcard $(ELISP_SRCDIR)/*.el))
 ELISP_OUT = $(ELISP_SRC:$(ELISP_SRCDIR)/%=$(ELISP_OUTDIR)/%)
 
 all: install
