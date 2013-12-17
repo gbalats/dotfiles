@@ -13,7 +13,6 @@ HISTCONTROL=ignoreboth
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -24,3 +23,17 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific aliases and functions
+unset -f pathmunge
+pathmunge () {
+    [ ! -d "$1" ] && return
+    case ":${PATH}:" in
+        *:"$1":*)
+            ;;
+        *)
+            if [ "$2" = "after" ] ; then
+                PATH=$PATH:$1
+            else
+                PATH=$1:$PATH
+            fi
+    esac
+}
