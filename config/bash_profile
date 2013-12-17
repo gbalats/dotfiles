@@ -1,0 +1,17 @@
+# .bash_profile
+
+export EDITOR='emacs'
+export JAVA_HOME=/usr/java/default
+export CATALINA_HOME=/usr/share/tomcat6
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+pathmunge $HOME/bin
+pathmunge $HOME/.local/bin
+pathmunge $JAVA_HOME/bin
+
+export PATH
