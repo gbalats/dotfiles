@@ -28,6 +28,7 @@
 (require 'tbemail)
 (require 'flymake)
 (require 'flymake-cursor)
+(require 'javap-handler)
 
 ;; Uncomment this line to enable cedet
 ;; (require 'cedet)
