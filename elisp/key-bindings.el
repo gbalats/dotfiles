@@ -15,3 +15,9 @@
 
 ;; set the keybinding so that you can use f5 to toggle easy keys (e.g. arrows, Home, etc)
 (global-set-key [f5] 'no-easy-keys-minor-mode)
+
+;;; Rebind `C-x C-b' for `buffer-menu'
+(global-set-key "\C-x\C-b" 'buffer-menu)
+
+;;; Since `M-<SPC>' is used by gnome, use `C-c <SPC>' instead
+(global-set-key (kbd "C-c <SPC>") 'just-one-space)
