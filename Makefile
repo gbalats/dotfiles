@@ -1,32 +1,49 @@
 INSTALL = install
 
 # Directories
-SRCDIR   = ./config
-OUTDIR   = $(HOME)
-EMACSDIR = $(HOME)/.emacs.d
-ELISP_SRCDIR = ./elisp
-ELISP_OUTDIR = $(EMACSDIR)/include
+BINDIR   = ./bin
+CONFDIR  = ./config
+ELISPDIR = ./elisp
+EMACSDIR = $(HOME)/.emacs.d/lib
 
 # Configuration files
-CONFIG = $(wildcard $(SRCDIR)/*)
-HIDDEN = $(CONFIG:$(SRCDIR)/%=$(OUTDIR)/.%)
+CONFIG  = $(wildcard $(CONFDIR)/*)
+CONFIG += $(addprefix $(CONFDIR)/, msmtprc)
+HIDDEN  = $(CONFIG:$(CONFDIR)/%=$(HOME)/.%)
 
 # Elisp files
-ELISP_SRC = $(filter-out %/emacs.el, $(wildcard $(ELISP_SRCDIR)/*.el))
-ELISP_OUT = $(ELISP_SRC:$(ELISP_SRCDIR)/%=$(ELISP_OUTDIR)/%)
+ELISP = $(filter-out emacs.el, $(notdir $(wildcard $(ELISPDIR)/*.el)))
 
 all: install
+install: elisp $(HIDDEN) 
 
-install: $(HIDDEN) $(ELISP_OUT)
+##################################
+# Installing configuration files #
+##################################
 
-$(HIDDEN): $(OUTDIR)/.%: $(SRCDIR)/%
+$(HOME)/.%: $(CONFDIR)/%
 	@echo "... installing $(@F) ..."
-	$(INSTALL) -m 444 $< $@
+	$(INSTALL) -m 400 $< $@
 
-$(ELISP_OUT): $(ELISP_OUTDIR)/%.el: $(ELISP_SRCDIR)/%.el
-	@echo "... (elisp) installing $* ..."
+#################################################
+# Generating .msmtprc (contains sensitive data) #
+#################################################
+
+$(CONFDIR)/msmtprc: $(BINDIR)/msmtprc.sh
+	$< $@
+
+##########################
+# Installing Elisp files #
+##########################
+
+elisp: $(addprefix $(EMACSDIR)/, $(ELISP))
+
+$(EMACSDIR)/%.el: $(ELISPDIR)/%.el
+	@echo "... [elisp] installing $* ..."
 	$(INSTALL) -m 444 -D $< $@
 
-elisp: $(ELISP_OUT)
+#################
+# Phony Targets #
+#################
 
 .PHONY: all install elisp
