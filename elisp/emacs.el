@@ -19,7 +19,7 @@
  '(flymake-warnline ((t (:background "brightblue")))))
 
 ;; load files
-(add-to-list 'load-path "~/.emacs.d/include/")
+(add-to-list 'load-path "~/.emacs.d/lib/")
 
 (require 'basic-conf)
 (require 'key-bindings)
