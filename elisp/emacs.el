@@ -30,6 +30,7 @@
 (require 'flymake-cursor)
 (require 'javap-handler)
 (require 'project-root)
+(require 'no-selection-copy)
 
 ;; Uncomment this line to enable cedet
 ;; (require 'cedet)
