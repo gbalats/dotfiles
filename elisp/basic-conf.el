@@ -54,6 +54,10 @@
 ;; set line numbering by default
 (global-linum-mode 1)
 
+;; set other modes by default
+(delete-selection-mode 1)
+(column-number-mode 1)
+
 ;; my java-mode hook
 (defun my-java-mode-hook ()
     (c-set-offset 'inline-open 0))
