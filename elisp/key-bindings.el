@@ -26,3 +26,6 @@
 (global-set-key (kbd "C-c w") (quote copy-word))
 (global-set-key (kbd "C-c l") (quote copy-line))
 (global-set-key (kbd "C-c p") (quote copy-paragraph))
+
+;; Re-compile shortcut
+(global-set-key (kbd "C-c c") 'recompile)
