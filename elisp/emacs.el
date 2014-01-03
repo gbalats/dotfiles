@@ -29,6 +29,7 @@
 (require 'flymake)
 (require 'flymake-cursor)
 (require 'javap-handler)
+(require 'project-root)
 
 ;; Uncomment this line to enable cedet
 ;; (require 'cedet)
