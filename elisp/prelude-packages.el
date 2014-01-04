@@ -1,6 +1,6 @@
 (defvar prelude-packages
   '(auctex clojure-mode coffee-mode deft expand-region
-           gist groovy-mode haskell-mode magit magithub
+           gist groovy-mode haskell-mode magit
            markdown-mode paredit projectile python
            rainbow-mode solarized-theme volatile-highlights
            yaml-mode yari zenburn-theme)
