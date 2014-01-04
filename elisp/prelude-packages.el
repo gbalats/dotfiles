@@ -3,8 +3,7 @@
            gist groovy-mode haskell-mode magit
            markdown-mode paredit projectile python
            rainbow-mode solarized-theme volatile-highlights
-           yaml-mode yari zenburn-theme auto-complete
-           ac-dabbrev)
+           yaml-mode yari auto-complete ac-dabbrev)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
