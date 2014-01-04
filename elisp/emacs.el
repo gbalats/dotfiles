@@ -21,9 +21,10 @@
 ;; load files
 (add-to-list 'load-path "~/.emacs.d/lib/")
 
-;; install prelude packages on emacs 24
+;; install prelude packages (and other packages) on emacs 24
 (when (>= emacs-major-version 24)
-  (require 'prelude-packages))
+  (require 'prelude-packages)
+  (require 'cedet))
 
 (require 'basic-conf)
 (require 'key-bindings)
@@ -35,9 +36,6 @@
 (require 'javap-handler)
 (require 'project-root)
 (require 'no-selection-copy)
-
-;; Uncomment this line to enable cedet
-;; (require 'cedet)
 
 ;; Uncomment this line to give emacs access to clipboard contents
 ;; (require 'xclip)
