@@ -32,3 +32,6 @@
 
 ;; Magit-status shortcut
 (global-set-key (kbd "C-c m") 'magit-status)
+
+;; Find files recursively shortcut
+(global-set-key (kbd "C-c f") 'find-name-dired)
