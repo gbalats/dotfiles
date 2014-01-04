@@ -21,7 +21,10 @@
 ;; load files
 (add-to-list 'load-path "~/.emacs.d/lib/")
 
-(require 'prelude-packages)
+;; install prelude packages on emacs 24
+(when (>= emacs-major-version 24)
+  (require 'prelude-packages))
+
 (require 'basic-conf)
 (require 'key-bindings)
 (require 'win-switch)
@@ -88,4 +91,4 @@
 ;; Whitespace mode
 (require 'whitespace)
 (setq whitespace-style '(face empty tabs lines-tail trailing))
-(global-whitespace-mode t)
+(global-whitespace-mode 1)
