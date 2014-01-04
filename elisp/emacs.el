@@ -21,6 +21,7 @@
 ;; load files
 (add-to-list 'load-path "~/.emacs.d/lib/")
 
+(require 'prelude-packages)
 (require 'basic-conf)
 (require 'key-bindings)
 (require 'win-switch)
