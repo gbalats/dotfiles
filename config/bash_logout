@@ -2,3 +2,6 @@
 
 # when leaving the console clear the screen to increase privacy
 [ -x /usr/bin/clear ] && /usr/bin/clear
+
+# kill running ssh agent
+kill $SSH_AGENT_PID
