@@ -2,6 +2,7 @@
 
 export EDITOR='emacs'
 export JAVA_HOME=/usr/java/default
+export PYTHON_HOME=/opt/python
 export CATALINA_HOME=/usr/share/tomcat6
 
 # Get the aliases and functions
@@ -13,5 +14,15 @@ fi
 pathmunge $HOME/bin
 pathmunge $HOME/.local/bin
 pathmunge $JAVA_HOME/bin
+pathmunge $PYTHON_HOME/bin
 
 export PATH
+
+# ssh agent
+export SSHAGENT=/usr/bin/ssh-agent
+export SSHAGENTARGS="-s"
+
+if [[ -z $SSH_AUTH_SOCK && -x $SSHAGENT ]]; then
+  eval `$SSHAGENT $SSHAGENTARGS`
+  trap "kill $SSH_AGENT_PID" 0
+fi
