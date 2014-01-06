@@ -5,7 +5,7 @@
 
 if [[ -z $LB_ENV_INITIALIZED ]]; then
     echo "Initializing logicblox environment..."
-    source ${HOME}/bin/lb-setup-env.sh
+    source $(dirname ${BASH_SOURCE[0]})/lb-setup-env.sh
 fi
 
 function switch-runtime()
