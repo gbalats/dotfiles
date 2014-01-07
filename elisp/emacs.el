@@ -33,7 +33,7 @@
 (require 'tbemail)
 (require 'flymake)
 (require 'flymake-cursor)
-(require 'javap-handler)
+(require 'java-decomp)
 (require 'project-root)
 (require 'no-selection-copy)
 
