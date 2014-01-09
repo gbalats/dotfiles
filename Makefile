@@ -7,7 +7,7 @@ CONFDIR  = ./config
 ELISPDIR = ./elisp
 
 # Target Directories
-EMACSDIR   = $(HOME)/.emacs.d/lib
+EMACSDIR   = $(HOME)/.emacs.d
 PROFILEDIR = $(HOME)/.profile.d
 
 # Configuration files
@@ -16,7 +16,7 @@ CONFIG += $(addprefix $(CONFDIR)/, msmtprc)
 HIDDEN  = $(CONFIG:$(CONFDIR)/%=$(HOME)/.%)
 
 # Elisp files
-ELISP = $(filter-out emacs.el, $(notdir $(wildcard $(ELISPDIR)/*.el)))
+ELISP = $(ELISPDIR)/init.el $(wildcard $(ELISPDIR)/lib/*.el)
 
 # LogicBlox utilities
 LB_ENV = $(notdir $(wildcard $(LBDIR)/*-env.sh))
@@ -44,7 +44,7 @@ $(CONFDIR)/msmtprc: $(BINDIR)/msmtprc.sh
 # Installing Elisp files #
 ##########################
 
-elisp: $(addprefix $(EMACSDIR)/, $(ELISP))
+elisp: $(ELISP:$(ELISPDIR)/%.el=$(EMACSDIR)/%.el)
 
 $(EMACSDIR)/%.el: $(ELISPDIR)/%.el
 	@echo "... [elisp] installing $* ..."
