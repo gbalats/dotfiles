@@ -18,6 +18,8 @@ HIDDEN  = $(CONFIG:$(CONFDIR)/%=$(HOME)/.%)
 # Elisp files
 ELISP = $(ELISPDIR)/init.el $(wildcard $(ELISPDIR)/lib/*.el)
 
+THESAURUS_URL = ftp://ibiblio.org/pub/docs/books/gutenberg/etext02/mthes10.zip
+
 # LogicBlox utilities
 LB_ENV = $(notdir $(wildcard $(LBDIR)/*-env.sh))
 
@@ -49,6 +51,14 @@ elisp: $(ELISP:$(ELISPDIR)/%.el=$(EMACSDIR)/%.el)
 $(EMACSDIR)/%.el: $(ELISPDIR)/%.el
 	@echo "... [elisp] installing $* ..."
 	$(INSTALL) -m 444 -D $< $@
+
+thesaurus: $(EMACSDIR)/thesaurus/mthesaur.txt
+
+$(EMACSDIR)/thesaurus/mthesaur.txt: 
+	@echo "... [elisp] downloading thesaurus ..."
+	@wget $(THESAURUS_URL) -O mthesaur.zip
+	@unzip mthesaur.zip -d $(@D)
+	@rm mthesaur.zip
 
 ##################################
 # Installing LogicBlox utilities #
