@@ -9,7 +9,7 @@ Emacs
 -----
 
 A list of emacs modules will be installed automatically via the
-package-system (available for emacs versions &geq; 24) the first time
+package-system (available for emacs versions &ge; 24) the first time
 that emacs is executed (after `make` has installed all of its
 targets).
 
