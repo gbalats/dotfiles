@@ -8,7 +8,7 @@ vpath %.sh bin/
 # Installing configuration files
 
 .PHONY: all
-all: $(patsubst $(HOME)/.%,%.bak,$(config))
+all: $(patsubst %.bak,$(HOME)/.%,$(config))
 
 $(HOME)/.%: %.bak
 	@echo "... installing $(@F) ..."
