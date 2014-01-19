@@ -1,19 +1,19 @@
-INSTALL = install
+INSTALL    := install
 
 # Source Directories
-LBDIR    = ./lb
-BINDIR   = ./bin
-CONFDIR  = ./config
-ELISPDIR = ./elisp
+LBDIR      := ./lb
+BINDIR     := ./bin
+CONFDIR    := ./config
+ELISPDIR   := ./elisp
 
 # Target Directories
-EMACSDIR   = $(HOME)/.emacs.d
-PROFILEDIR = $(HOME)/.profile.d
+EMACSDIR   := $(HOME)/.emacs.d
+PROFILEDIR := $(HOME)/.profile.d
 
 # Configuration files
-CONFIG  = $(wildcard $(CONFDIR)/*)
-CONFIG += $(addprefix $(CONFDIR)/, msmtprc)
-HIDDEN  = $(CONFIG:$(CONFDIR)/%=$(HOME)/.%)
+CONFIG     := $(wildcard $(CONFDIR)/*)
+CONFIG     += $(addprefix $(CONFDIR)/, msmtprc)
+HIDDEN     := $(CONFIG:$(CONFDIR)/%=$(HOME)/.%)
 
 # Elisp files
 ELISP = $(ELISPDIR)/init.el $(wildcard $(ELISPDIR)/lib/*.el)
@@ -39,22 +39,30 @@ $(HOME)/.%: $(CONFDIR)/%
 # Generating .msmtprc (contains sensitive data) #
 #################################################
 
-$(CONFDIR)/msmtprc: $(BINDIR)/msmtprc.sh
+vpath %.sh $(BINDIR)/
+
+$(CONFDIR)/msmtprc: msmtprc.sh
 	$< $@
 
 ##########################
 # Installing Elisp files #
 ##########################
 
+vpath %.el $(ELISPDIR)/
+
+.PHONY: elisp
 elisp: $(ELISP:$(ELISPDIR)/%.el=$(EMACSDIR)/%.el)
 
-$(EMACSDIR)/%.el: $(ELISPDIR)/%.el
+$(EMACSDIR)/%.el: %.el
 	@echo "... [elisp] installing $* ..."
 	$(INSTALL) -m 444 -D $< $@
 
-thesaurus: $(EMACSDIR)/thesaurus/mthesaur.txt
+thesaurus := $(EMACSDIR)/thesaurus/mthesaur.txt
 
-$(EMACSDIR)/thesaurus/mthesaur.txt: 
+.PHONY: thesaurus
+thesaurus: $(thesaurus)
+
+$(thesaurus):
 	@echo "... [elisp] downloading thesaurus ..."
 	@wget $(THESAURUS_URL) -O mthesaur.zip
 	@unzip mthesaur.zip -d $(@D)
@@ -64,9 +72,12 @@ $(EMACSDIR)/thesaurus/mthesaur.txt:
 # Installing LogicBlox utilities #
 ##################################
 
+vpath %.sh $(LBDIR)/
+
+.PHONY: lbenv
 lbenv: $(addprefix $(PROFILEDIR)/lb-,$(LB_ENV))
 
-$(PROFILEDIR)/lb-%.sh: $(LBDIR)/%.sh
+$(PROFILEDIR)/lb-%.sh: %.sh
 	@echo "... [lb] installing $* ..."
 	$(INSTALL) -m 444 -D $< $@
 
@@ -74,4 +85,4 @@ $(PROFILEDIR)/lb-%.sh: $(LBDIR)/%.sh
 # Phony Targets #
 #################
 
-.PHONY: all install elisp
+.PHONY: all install
