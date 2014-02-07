@@ -90,3 +90,8 @@
 (require 'whitespace)
 (setq whitespace-style '(face empty tabs lines-tail trailing))
 (global-whitespace-mode 1)
+
+;; Thesaurus
+(require 'synonyms)
+(setq synonyms-file        "~/.emacs.d/thesaurus/mthesaur.txt")
+(setq synonyms-cache-file  "~/.emacs.d/thesaurus/mthesaur.txt.cache")

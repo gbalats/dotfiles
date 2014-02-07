@@ -1,9 +1,9 @@
 (defvar prelude-packages
   '(auctex clojure-mode coffee-mode deft expand-region
-           gist groovy-mode haskell-mode magit
-           markdown-mode paredit projectile python
+           gist groovy-mode haskell-mode magit javap-mode
+           markdown-mode paredit projectile python color-theme
            rainbow-mode solarized-theme volatile-highlights
-           yaml-mode yari auto-complete ac-dabbrev)
+           yaml-mode yari auto-complete ac-dabbrev synonyms)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()

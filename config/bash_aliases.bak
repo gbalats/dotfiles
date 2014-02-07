@@ -29,3 +29,7 @@ alias ll="ls -lhFv --group-directories-first"
 alias lm='ll | less'       #  Pipe through 'less'
 alias lr='ll -R'           #  Recursive ls.
 alias la='ll -A'           #  Show hidden files.
+
+# LogicBlox specific
+alias lb-setup="source ~/.profile.d/lb-setup-env.sh"
+alias lb-switch="source ~/.profile.d/lb-switch-env.sh"
