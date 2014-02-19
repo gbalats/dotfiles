@@ -4,7 +4,6 @@
 # not work since `pathmunge' is not exported.
 
 if [[ -z $LB_ENV_INITIALIZED ]]; then
-    echo "Initializing logicblox environment..."
     source $(dirname ${BASH_SOURCE[0]})/lb-setup-env.sh
 fi
 
@@ -17,17 +16,20 @@ function switch-runtime()
 
 case $LOGICBLOX_HOME in
     "$LB_ORT_HOME")
-        echo "Using old runtime. Switching to new..."
+        echo >&2 "Using old runtime. Switching to new ..."
         export LOGICBLOX_HOME=${LB_NRT_HOME}
 
         # Substituting runtime in environment variables
         switch-runtime $LB_ORT_HOME $LB_NRT_HOME
         ;;
     "$LB_NRT_HOME")
-        echo "Using new runtime. Switching to old..."
+        echo >&2 "Using new runtime. Switching to old ..."
         export LOGICBLOX_HOME=${LB_ORT_HOME}
 
         # Substituting runtime in environment variables
         switch-runtime $LB_NRT_HOME $LB_ORT_HOME
+        ;;
+    *)
+        echo >&2 "Error: corrupted LB Environment. Better clean up ..."
         ;;
 esac

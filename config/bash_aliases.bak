@@ -33,3 +33,4 @@ alias la='ll -A'           #  Show hidden files.
 # LogicBlox specific
 alias lb-setup="source ~/.profile.d/lb-setup-env.sh"
 alias lb-switch="source ~/.profile.d/lb-switch-env.sh"
+alias lb-clean="source ~/.profile.d/lb-clean-env.sh"
