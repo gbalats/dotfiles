@@ -63,7 +63,6 @@ For detail, see `comment-dwim'."
     (modify-syntax-entry ?/ ". 124b" st)
     (modify-syntax-entry ?* ". 23" st)
     (modify-syntax-entry ?\n "> b" st)
-    (modify-syntax-entry ?\/ ". 12b" st)
     st)
   "Syntax table for `lb-datalog-mode'.")
 
@@ -72,12 +71,18 @@ For detail, see `comment-dwim'."
 (define-derived-mode lb-datalog-mode fundamental-mode "lb-datalog mode"
   "Major mode for editing LB Datalog ..."
 
+  ;; Comments start with `//'.
+  (set (make-local-variable 'comment-start) "//")
+
   ;; code for syntax highlighting
   (set (make-local-variable 'font-lock-defaults)
        '(lb-datalog-font-lock-keywords))
 
   ;; mode name
   (set (make-local-variable 'mode-name) "lb-datalog")
+
+  ;; syntax table
+  (set-syntax-table lb-datalog-syntax-table)
 
   ;; modify the keymap
   (define-key lb-datalog-mode-map [remap comment-dwim]
