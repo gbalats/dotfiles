@@ -36,6 +36,9 @@
 (require 'java-decomp)
 (require 'project-root)
 (require 'no-selection-copy)
+(require 'lb-datalog-mode)
+
+(add-to-list 'auto-mode-alist '("\\.logic$" . lb-datalog-mode))
 
 ;; Uncomment this line to give emacs access to clipboard contents
 ;; (require 'xclip)
