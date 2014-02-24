@@ -23,6 +23,11 @@
   :type  'face
   :group 'lb-datalog)
 
+(defcustom lb-datalog-predicate-face 'font-lock-builtin-face
+  "Face for predicate names in `lb-datalog-mode' buffers."
+  :type  'face
+  :group 'lb-datalog)
+
 (defcustom lb-datalog-mode-hook nil
   "List of functions to be executed on entry to `lb-datalog-mode'."
   :type  'hook
@@ -39,14 +44,32 @@
         "boolean" "string" "datetime" "color"))
 
 (defconst lb-datalog-keywords-regexp
-  (regexp-opt lb-datalog-keywords 'words))
+  (eval-when-compile
+    (regexp-opt lb-datalog-keywords 'words)))
 
 (defconst lb-datalog-types-regexp
-  (regexp-opt lb-datalog-types 'words))
+  (eval-when-compile
+    (regexp-opt lb-datalog-types 'words)))
+
+(defconst lb-datalog-number-regexp
+  (concat "\\<[[:digit:]]+"
+          "\\(?:\\.[[:digit:]]+\\)?"
+          "\\(?:[eE][+-]?[[:digit:]]+\\)?\\>")
+  "Regular expression for LB Datalog numbers.")
 
 (defvar lb-datalog-font-lock-keywords
-  `((,lb-datalog-types-regexp . font-lock-type-face)
-    (,lb-datalog-keywords-regexp . font-lock-keyword-face)))
+  (let* ((variable-regexp "[[:alpha:]_?][[:word:]_]*")
+         (predicate-name-regexp "\\sw+\\(?:[:_?$]\\sw+\\)*")
+         (predicate-ref-regexp (concat "`" predicate-name-regexp))
+         (predicate-regexp (concat "\\(" predicate-name-regexp "\\)"
+                                   "\\s(.*?\\s)")))
+    `((,lb-datalog-types-regexp . font-lock-type-face)
+      (,lb-datalog-keywords-regexp . font-lock-keyword-face)
+      (,lb-datalog-number-regexp . font-lock-warning-face)
+      (,predicate-ref-regexp . font-lock-reference-face)
+      (,predicate-regexp 1 lb-datalog-predicate-face)
+      (,variable-regexp . font-lock-variable-name-face)))
+  "Font-lock keywords for `lb-datalog-mode'.")
 
 ;; command to comment/uncomment text
 (defun lb-datalog-comment-dwim (arg)
@@ -59,7 +82,7 @@ For detail, see `comment-dwim'."
 ;; syntax table
 (defvar lb-datalog-syntax-table
   (let ((st (make-syntax-table)))
-    ;; C++ style comment "// ..."
+    ;; C++ style comment `//' ..."
     (modify-syntax-entry ?/ ". 124b" st)
     (modify-syntax-entry ?* ". 23" st)
     (modify-syntax-entry ?\n "> b" st)
