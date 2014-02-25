@@ -1,9 +1,17 @@
+;;; lb-datalog-mode.el --- major mode for editing Datalog code
+
+;; Author: George Balatsouras
+;; Keywords: LogicBlox Datalog
+
+
 ;;; Commentary:
 
 ;; Put this file into your load-path and the following into your ~/.emacs:
 ;;   (require 'lb-datalog-mode)
 
+
 ;;; Code:
+
 (provide 'lb-datalog-mode)
 
 ;; Prerequisites
@@ -110,3 +118,7 @@ For detail, see `comment-dwim'."
   ;; modify the keymap
   (define-key lb-datalog-mode-map [remap comment-dwim]
     'lb-datalog-comment-dwim))
+
+
+;; Add file association
+(add-to-list 'auto-mode-alist '("\\.logic$" . lb-datalog-mode))
