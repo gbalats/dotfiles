@@ -1,0 +1,3 @@
+[submodule "elisp/lb-datalog-mode"]
+	path = elisp/lb-datalog-mode
+	url = git@github.com:gbalats/lb-datalog-mode.git

@@ -20,6 +20,7 @@
 
 ;; load files
 (add-to-list 'load-path "~/.emacs.d/lib/")
+(add-to-list 'load-path "~/.emacs.d/lb-datalog-mode/")
 
 ;; install prelude packages (and other packages) on emacs 24
 (when (>= emacs-major-version 24)
