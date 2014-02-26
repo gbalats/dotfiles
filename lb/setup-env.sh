@@ -3,6 +3,8 @@
 # This script is intended to be sourced, otherwise it will
 # not work since `pathmunge' is not exported.
 
+echo >&2 "Initializing personalized LogicBlox environment ..."
+
 export LB_DEPLOYMENT_HOME="$HOME/.lb_deployment"
 export LB_CONNECTBLOX_ENABLE_ADMIN=1
 

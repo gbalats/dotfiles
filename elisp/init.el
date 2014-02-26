@@ -20,6 +20,7 @@
 
 ;; load files
 (add-to-list 'load-path "~/.emacs.d/lib/")
+(add-to-list 'load-path "~/.emacs.d/lb-datalog-mode/")
 
 ;; install prelude packages (and other packages) on emacs 24
 (when (>= emacs-major-version 24)
@@ -36,6 +37,8 @@
 (require 'java-decomp)
 (require 'project-root)
 (require 'no-selection-copy)
+(require 'lb-datalog-mode)
+
 
 ;; Uncomment this line to give emacs access to clipboard contents
 ;; (require 'xclip)

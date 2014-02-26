@@ -7,7 +7,7 @@ alias gcc='gcc -pedantic -Wall -W -Wextra -Wfloat-equal -Wpadded -Wshadow '\
 alias xclip='xclip -sel clip'
 
 # adding more colors by default
-alias grep='grep --color=always'
+alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias less='less -R'
@@ -33,3 +33,4 @@ alias la='ll -A'           #  Show hidden files.
 # LogicBlox specific
 alias lb-setup="source ~/.profile.d/lb-setup-env.sh"
 alias lb-switch="source ~/.profile.d/lb-switch-env.sh"
+alias lb-clean="source ~/.profile.d/lb-clean-env.sh"

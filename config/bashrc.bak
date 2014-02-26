@@ -7,7 +7,7 @@
 # Ignored commands in history
 HISTIGNORE="&:[bf]g:h:history:exit"
 
-# don't put duplicate lines in the history. 
+# don't put duplicate lines in the history.
 HISTCONTROL=ignoreboth
 
 # Alias definitions.
@@ -19,7 +19,7 @@ fi
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+    . /etc/bashrc
 fi
 
 # User specific aliases and functions

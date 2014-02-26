@@ -1,5 +1,6 @@
 emacs.dir := $(HOME)/.emacs.d
 elisp     := init.el $(wildcard lib/*.el)
+elisp     += $(wildcard lb-datalog-mode/*.el)
 
 include ../common.mk
 
