@@ -92,7 +92,9 @@
 ;; Whitespace mode
 (require 'whitespace)
 (setq whitespace-style '(face empty tabs lines-tail trailing))
-(global-whitespace-mode 1)
+(global-whitespace-mode t)
+(setq whitespace-global-modes
+      '(c-mode c++-mode lb-datalog-mode java-mode shell-script-mode emacs-lisp-mode))
 
 ;; Thesaurus
 (require 'synonyms)
