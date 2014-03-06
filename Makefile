@@ -2,9 +2,9 @@ include common.mk
 
 # Components
 config  := ./config
-elisp   := ./elisp
+emacs   := ./emacs
 lb      := ./lb
-modules := $(elisp) $(lb) $(config)
+modules := $(emacs) $(lb) $(config)
 
 .PHONY: install $(modules)
 install: $(modules)
