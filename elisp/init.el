@@ -7,8 +7,8 @@
  '(c-backspace-function (quote delete-backward-char))
  '(inhibit-startup-screen t)
  '(haskell-mode-hook (quote (turn-on-haskell-indent)))
- '(package-archives (quote (("gnu" . "http://elpa.gnu.org/packages/") 
-                            ("melpa" . "http://melpa.milkbox.net/packages/") 
+ '(package-archives (quote (("gnu" . "http://elpa.gnu.org/packages/")
+                            ("melpa" . "http://melpa.milkbox.net/packages/")
                             ("marmalade" . "http://marmalade-repo.org/packages/")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -19,7 +19,7 @@
  '(flymake-warnline ((t (:background "brightblue")))))
 
 ;; load files
-(add-to-list 'load-path "~/.emacs.d/lib/")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (add-to-list 'load-path "~/.emacs.d/lb-datalog-mode/")
 
 ;; install prelude packages (and other packages) on emacs 24
