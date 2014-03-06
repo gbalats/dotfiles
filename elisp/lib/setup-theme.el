@@ -6,7 +6,9 @@
 ;;; Code:
 
 (require 'color-theme)
-(require 'zenburn-theme)
+
+(require 'zenburn)
+(eval-after-load "color-theme" '(zenburn))
 
 (defun on-frame-open (frame)
   (unless (display-graphic-p frame))
