@@ -38,6 +38,7 @@
 (require 'project-root)
 (require 'no-selection-copy)
 (require 'lb-datalog-mode)
+(require 'setup-theme)
 
 
 ;; Uncomment this line to give emacs access to clipboard contents
