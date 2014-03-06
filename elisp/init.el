@@ -98,6 +98,7 @@
                shell-script-mode sh-mode))
 
 ;; Thesaurus
-(require 'synonyms)
-(setq synonyms-file        "~/.emacs.d/thesaurus/mthesaur.txt")
-(setq synonyms-cache-file  "~/.emacs.d/thesaurus/mthesaur.txt.cache")
+(when (>= emacs-major-version 24)
+  (require 'synonyms)
+  (setq synonyms-file        "~/.emacs.d/thesaurus/mthesaur.txt")
+  (setq synonyms-cache-file  "~/.emacs.d/thesaurus/mthesaur.txt.cache"))
