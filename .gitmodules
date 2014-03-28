@@ -1,3 +1,6 @@
 [submodule "emacs/lb-datalog-mode"]
 	path = emacs/lb-datalog-mode
 	url = git@github.com:gbalats/lb-datalog-mode.git
+[submodule "emacs/use-package"]
+	path = emacs/use-package
+	url = git@github.com:jwiegley/use-package.git
