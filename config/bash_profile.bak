@@ -2,6 +2,7 @@
 
 export EDITOR='emacs'
 export JAVA_HOME=/usr/java/default
+export LLVM_HOME=/opt/llvm/default
 export CATALINA_HOME=/usr/share/tomcat6
 export TERM=xterm-256color
 
@@ -14,5 +15,6 @@ fi
 pathmunge $HOME/bin
 pathmunge $HOME/.local/bin
 pathmunge $JAVA_HOME/bin
+pathmunge $LLVM_HOME/bin
 
 export PATH
