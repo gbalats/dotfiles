@@ -4,3 +4,6 @@
 [submodule "emacs/use-package"]
 	path = emacs/use-package
 	url = git@github.com:jwiegley/use-package.git
+[submodule "emacs/autodisass-java-bytecode"]
+	path = emacs/autodisass-java-bytecode
+	url = git@github.com:gbalats/autodisass-java-bytecode.git
