@@ -16,6 +16,7 @@ pathmunge $HOME/bin
 pathmunge $HOME/.local/bin
 pathmunge $JAVA_HOME/bin
 pathmunge $LLVM_HOME/bin
+pathmunge $HOME/.cask/bin
 
 export PATH
 
