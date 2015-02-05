@@ -28,3 +28,7 @@ bind-key \ split-window -h # split pane vertically
 
 # window names as titles (works well with tmuxinator)
 set-window-option -g allow-rename off
+
+# powerline setup
+# source /usr/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf
+set-option -g default-terminal "screen-256color"
