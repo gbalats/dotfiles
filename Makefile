@@ -2,9 +2,9 @@ include common.mk
 
 # Components
 config  := ./config
-emacs   := ./emacs
+fonts   := ./fonts
 lb      := ./lb
-modules := $(emacs) $(lb) $(config)
+modules := $(fonts) $(lb) $(config)
 
 .PHONY: install $(modules)
 install: $(modules)
