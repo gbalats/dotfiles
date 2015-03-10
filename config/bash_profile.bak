@@ -21,6 +21,6 @@ pathmunge $HOME/.cask/bin
 export PATH
 
 # THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-if [[ -s ~/.gvm/bin/gvm-init.sh ]]; then
-   . ~/.gvm/bin/gvm-init.sh
+if [[ -s $HOME/.gvm/bin/gvm-init.sh ]]; then
+   . "$HOME/.gvm/bin/gvm-init.sh"
 fi

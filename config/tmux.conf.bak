@@ -7,6 +7,8 @@
 #
 #############################
 
+PYTHON_LIBRARY_PATH="/usr/lib/python2.7/site-packages"
+
 # set prefix key to ctrl+z
 unbind C-b
 set -g prefix C-z
@@ -31,5 +33,5 @@ set-window-option -g allow-rename off
 set-window-option -g xterm-keys on
 
 # powerline setup
-# source /usr/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf
+# source "${PYTHON_LIBRARY_PATH}/powerline/bindings/tmux/powerline.conf"
 set-option -g default-terminal "screen-256color"
