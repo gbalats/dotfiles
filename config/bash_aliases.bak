@@ -22,7 +22,7 @@ alias rm='rm -i'
 # ssh logins
 alias alpha='ssh gbalats@alpha.cs.umass.edu '
 alias omega='ssh gbalats@omega.cs.umass.edu '
-alias lobo='ssh lobo@lobo.di.uoa.gr '
+alias lobo='ssh gbalats@lobo.di.uoa.gr '
 
 # The ubiquitous 'll': directories first, with alphanumeric sorting:
 alias ll="ls -lhFv --group-directories-first"
