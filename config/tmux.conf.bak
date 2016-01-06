@@ -30,6 +30,8 @@ bind-key \ split-window -h # split pane vertically
 
 # window names as titles (works well with tmuxinator)
 set-window-option -g allow-rename off
+
+# Enable shift-arrow through SSH
 set-window-option -g xterm-keys on
 
 # powerline setup
