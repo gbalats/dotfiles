@@ -19,6 +19,10 @@ alias j='jobs -l'
 # safer rm that asks confirmation
 alias rm='rm -i'
 
+# side-by-side diff
+alias vdiff='diff-y -W $(tput cols) --suppress-common-lines'
+alias vdifff='diff-y -W $(tput cols)'
+
 # ssh logins
 alias alpha='ssh gbalats@alpha.cs.umass.edu '
 alias omega='ssh gbalats@omega.cs.umass.edu '
