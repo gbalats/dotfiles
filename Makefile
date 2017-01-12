@@ -1,7 +1,7 @@
 include common.mk
 
 # Components
-config  := ./config
+config  := ./config ./xdg-config
 fonts   := ./fonts
 lb      := ./lb
 modules := $(fonts) $(lb) $(config)

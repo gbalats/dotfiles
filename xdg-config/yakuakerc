@@ -1,0 +1,28 @@
+[Appearance]
+Skin=legacy
+
+[Desktop Entry]
+DefaultProfile=Shell.profile
+
+[Dialogs]
+FirstRun=false
+
+[Favorite Profiles]
+Favorites=
+
+[Shortcuts]
+decrease-window-height=Alt+Shift+Up
+decrease-window-width=Alt+Shift+Left
+increase-window-height=Alt+Shift+Down
+increase-window-width=Alt+Shift+Right
+file_quit=Ctrl+Shift+Q
+new-session=Ctrl+Shift+T
+next-session=Ctrl+PgDown
+previous-session=Ctrl+PgUp
+split-left-right=Ctrl+(
+split-top-bottom=Ctrl+)
+view-full-screen=Ctrl+Shift+F11
+
+[Window]
+Height=100
+Width=100
