@@ -1,13 +1,12 @@
-include common.mk
+INSTALL := install
 
-# Components
-config  := ./config ./xdg-config
-fonts   := ./fonts
-lb      := ./lb
-modules := $(fonts) $(lb) $(config)
+all:
 
-.PHONY: install $(modules)
-install: $(modules)
+CONFIG_DIR   := ./config
+CONFIG_FILES := $(wildcard $(CONFIG_DIR)/*.bak)
 
-$(modules):
-	$(MAKE) --directory=$@
+.PHONY: all
+all: $(patsubst $(CONFIG_DIR)/%.bak,$(HOME)/.%,$(CONFIG_FILES))
+$(HOME)/.%: $(CONFIG_DIR)/%.bak
+	@echo "... installing $(@F) ..."
+	$(INSTALL) -m 400 $< $@

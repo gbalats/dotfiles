@@ -1,5 +1,0 @@
-set use_envelope_from
-set envelope_from_address= "gbalats@gmail.com"
-set sendmail="/usr/bin/msmtp"
-set use_from=yes
-set envelope_from="yes"
