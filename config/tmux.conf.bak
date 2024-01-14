@@ -37,3 +37,6 @@ set-window-option -g xterm-keys on
 # powerline setup
 # source "${PYTHON_LIBRARY_PATH}/powerline/bindings/tmux/powerline.conf"
 set-option -g default-terminal "screen-256color"
+
+# See https://github.com/spudlyo/clipetty
+set -ag update-environment "SSH_TTY"
