@@ -1,9 +1,6 @@
 # .bash_profile
 
 export EDITOR='emacs'
-export JAVA_HOME=/usr/java/default
-export LLVM_HOME=/opt/llvm/default
-export CATALINA_HOME=/usr/share/tomcat6
 export TERM=xterm-256color
 
 # Get the aliases and functions
@@ -14,16 +11,9 @@ fi
 # User specific environment and startup programs
 pathmunge $HOME/bin
 pathmunge $HOME/.local/bin
-pathmunge $JAVA_HOME/bin
-pathmunge $LLVM_HOME/bin
 pathmunge $HOME/.cask/bin
 
 export PATH
 
 # Manage ssh passphrases
 # eval `keychain --eval id_rsa`
-
-# THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-if [[ -s $HOME/.gvm/bin/gvm-init.sh ]]; then
-   . "$HOME/.gvm/bin/gvm-init.sh"
-fi
